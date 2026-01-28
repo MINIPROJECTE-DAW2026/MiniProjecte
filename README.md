@@ -1,0 +1,2 @@
+# MiniProjecte
+Enuciat del MiniProjecte
