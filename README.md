@@ -20,8 +20,12 @@ Del 27 d'abril al 22 de maig
 
 ## Enunciats
 
-* [Pràctica bàsica](./enunciat01.md) Obligatori per a tothom.
-* [Pràctica avançada](./enunciat01.md) Qui vulgui aprendre més.
+Tria una d'aquestes pràctiques o proposa tu la teva. Per a cada enunciat hi ha dos nivells, el bàsic i l'avançat. El bàsic és obligatori, de l'avançat mira d'arribar fins on puguis.
+
+### embassaments de les Conques Internes de Catalunya
+
+* [Pràctica bàsica](./enunciat-embassaments-01.md)
+* [Pràctica avançada](./enunciat-embassaments-02.md)
 
 ## Conceptes clau
 
