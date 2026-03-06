@@ -40,7 +40,7 @@ Procés ETL de càrrega de dades. A partir del dataset s'informen les dades a la
 
 <details>
 
-<sumary>Enunciat</summary>
+<summary>Enunciat</summary>
 
 ### Context
 
