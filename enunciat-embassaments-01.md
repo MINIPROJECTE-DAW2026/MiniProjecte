@@ -14,6 +14,8 @@ La teva aplicació ha de mostrar aquestes pantalles als usuaris:
 * Estació
   * Estat actual de l'estació.
   * Taula de dades: anys / mesos amb % Percentatge volum embassat amb codis de colors.
+* Estació i dia
+  * Veure l'estat d'un mes concret de l'estació (mitjana dels dies)
 
 
 ## API
@@ -114,6 +116,6 @@ El procediment ha de:
 
 </details>
 
-## Despelegament
+## Desplegament
 
 La base de dades ha d'estar al núvol (per exemple a AWS). L'aplicació també.
