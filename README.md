@@ -112,3 +112,8 @@ Resultats d'aprenentatge i criteris d'avaluació per Mòdul Professional i RA.
 - Les notes afecten tots els RA i representarà el 33% de la nota del Level 3.
 
 ### 0483 - Sistemes Informàtics
+
+* RA2. Instal·la sistemes operatius planificant el procés i interpretant documentació tècnica.
+* RA3. Gestiona la informació del sistema identificant les estructures d'emmagatzematge i aplicant mesures per assegurar la integritat de les dades.
+* RA6. Treballa amb sistemes en xarxa gestionant-ne els recursos i identificant les restriccions de seguretat existents.
+* RA7. Elabora documentació valorant i utilitzant aplicacions informàtiques de propòsit general.
