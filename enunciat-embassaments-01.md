@@ -15,12 +15,13 @@ La teva aplicació ha de mostrar aquestes pantalles als usuaris:
   * Estat actual de l'estació.
   * Taula de dades: anys / mesos amb % Percentatge volum embassat amb codis de colors.
 * Estació i dia
-  * Veure l'estat d'un mes concret de l'estació (mitjana dels dies)
-
+* Estació i mes/any: Veure l'estat d'un mes
+  concret de l'estació (mitjana dels dies)
 
 ## API
 
 Tindrà dos end points:
+
 * Llistat d'estacions.
 * Dades estació: Retornarà les tres mètriques que apareixen al dataset corresponents a la data més nova, i la data.
 

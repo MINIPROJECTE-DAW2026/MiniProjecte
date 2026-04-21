@@ -95,7 +95,7 @@ Resultats d'aprenentatge i criteris d'avaluació per Mòdul Professional i RA.
 #### Criteris d'avaluació i afectació a la nota
 
 - S'avaluarà el que entreguin els alumnes que tingui relació amb el mòdul
-- Les notes afecten tots els RA i representarà el 33% de la nota del Level 3.
+- Les notes afecten tots els RA i representarà el 10% de la nota del Level 3.
 
 ### 0487 - Entorns de Desenvolupament
 
@@ -109,7 +109,7 @@ Resultats d'aprenentatge i criteris d'avaluació per Mòdul Professional i RA.
 #### Criteris d'avaluació i afectació a la nota
 
 - S'avaluarà el que entreguin els alumnes que tingui relació amb el mòdul
-- Les notes afecten tots els RA i representarà el 33% de la nota del Level 3.
+- Les notes afecten tots els RA i representarà el 10% de la nota del Level 3.
 
 ### 0483 - Sistemes Informàtics
 
