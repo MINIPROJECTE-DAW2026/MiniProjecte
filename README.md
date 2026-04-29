@@ -8,7 +8,7 @@ El currículum DAW actual preveu 515h d'EE (Estada en Empresa). Per poder finali
 
 ## Calendari
 
-Del 27 d'abril al 22 de maig
+Del 4 al 22 de maig
 
 ## Quins mòduls professionals contempla
 
