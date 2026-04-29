@@ -22,3 +22,6 @@ Crea un formulari per entrar dades d'una lectura d'una estació i desar-la a la 
 
 Prepara un desplegament amb Docker de la teva aplicació.
 
+## Documentació
+
+Cal fer  un document tècnic, explicant com fer el desplegament de l'aplicatiu amb docker. Cal explicar, pas a pas, tot el procés necessari fins a tenir l'aplicatiu correctament funcionant.

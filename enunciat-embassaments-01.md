@@ -120,3 +120,7 @@ El procediment ha de:
 ## Desplegament
 
 La base de dades ha d'estar al núvol (per exemple a AWS). L'aplicació també.
+
+## Documentació
+
+Cal fer  un document tècnic, explicant el funcionament intern de l'aplicatiu. Es demana mostrar tots els esquemes de la BDD i les funcionalitats programades documentades.
