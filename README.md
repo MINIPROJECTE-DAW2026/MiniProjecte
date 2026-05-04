@@ -1,5 +1,7 @@
 # Mini Projecte DAW 2025-26
 
+[Obtenir el repositori de GIT](https://classroom.github.com/a/L0BqADCy)
+
 ## Què i perquè el MiniProjecte DAW
 
 L'objectiu és que l'alumnat es capaciti per aprofitar l'EE.
