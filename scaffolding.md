@@ -37,29 +37,29 @@ De fet, és recomanable modificar-lo perquè:
 
 #### Instal·lar l’eina
 
-'''bash
+```bash
 dotnet tool install -g dotnet-aspnet-codegenerator
-'''
+```
 
 #### Afegir el paquet necessari
 
-'''bash
+```bash
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
-'''
+```
 
 ---
 
 ### 📦 Crear un controlador buit
 
-'''bash
+```bash
 dotnet aspnet-codegenerator controller -name ProductController -outDir Controllers
-'''
+```
 
 ---
 
 ### 🔄 Crear controlador amb CRUD i vistes
 
-'''bash
+```bash
 dotnet aspnet-codegenerator controller \
   -name ProductController \
   -m Product \
@@ -67,15 +67,15 @@ dotnet aspnet-codegenerator controller \
   --relativeFolderPath Controllers \
   --useDefaultLayout \
   --referenceScriptLibraries
-'''
+```
 
 ---
 
 ### 🎨 Crear una vista
 
-'''bash
+```bash
 dotnet aspnet-codegenerator view Index List -m Product
-'''
+```
 
 ---
 
