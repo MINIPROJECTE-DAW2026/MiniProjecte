@@ -124,3 +124,40 @@ La base de dades ha d'estar al núvol (per exemple a AWS). L'aplicació també.
 ## Documentació
 
 Cal fer  un document tècnic, explicant el funcionament intern de l'aplicatiu. Es demana mostrar tots els esquemes de la BDD i les funcionalitats programades documentades.
+
+## Sistemes empresarials
+
+Instal·la Oddo mitjançant docker:
+
+Base de dades:
+
+### 1. Iniciar PostgreSQL
+
+Odoo necessita una base de dades :contentReference[oaicite:1]{index=1}:
+
+```bash
+docker run -d \
+  -e POSTGRES_USER=odoo \
+  -e POSTGRES_PASSWORD=odoo \
+  -e POSTGRES_DB=postgres \
+  --name db \
+  postgres:15
+```
+
+Iniciar Odoo
+
+```bash
+docker run -d \
+  -p 8069:8069 \
+  --name odoo \
+  --link db:db \
+  odoo
+```
+
+Accedir a Odoo
+
+```
+http://localhost:8069
+```
+
+Un cop engegat, prepara una factura per facturar els serveis que has fet al projecte al client Cendrassos.

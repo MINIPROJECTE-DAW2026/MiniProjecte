@@ -27,6 +27,50 @@ Tria una d'aquestes pràctiques o proposa tu la teva. Per a cada enunciat hi ha 
 * [Pràctica bàsica](./enunciat-embassaments-01.md)
 * [Pràctica avançada](./enunciat-embassaments-02.md)
 
+## Introducció a .NET Core MVC
+
+**.NET Core MVC** (actualment conegut com a **ASP.NET Core MVC**) és un framework de Microsoft per construir aplicacions web modernes seguint el patró **Model-View-Controller (MVC)**. Està dissenyat per ser multiplataforma (Windows, Linux, macOS), altament eficient i escalable.
+
+### 🧱 Patró MVC
+
+- **Model**: Representa les dades i la lògica de negoci.
+- **View**: És la interfície d’usuari (HTML, CSS, Razor).
+- **Controller**: Gestiona les peticions de l’usuari, processa dades i retorna respostes.
+
+### ⚙️ Característiques principals
+
+- Multiplataforma
+- Injecció de dependències integrada
+- Routing flexible (URL → accions)
+- Integració amb Razor per generar HTML dinàmic
+- Alt rendiment i modularitat
+
+### 🔄 Flux bàsic
+
+1. L’usuari fa una petició HTTP.
+2. El sistema de routing la dirigeix a un **Controller**.
+3. El controller interactua amb el **Model**.
+4. Es retorna una **View** amb les dades processades.
+
+### 📦 Exemple simple
+
+```csharp
+public class HomeController : Controller
+{
+    public IActionResult Index()
+    {
+        return View();
+    }
+}
+```
+
+### Doc
+
+* [Patrón de MVC de ASP.NET](https://dotnet.microsoft.com/es-es/apps/aspnet/mvc)
+* [Scaffolding](./scaffolding.md)
+
+
+
 ## Conceptes clau
 
 | Concepte | Nivell | Descripció | Mòduls |

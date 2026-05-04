@@ -25,3 +25,7 @@ Prepara un desplegament amb Docker de la teva aplicació.
 ## Documentació
 
 Cal fer  un document tècnic, explicant com fer el desplegament de l'aplicatiu amb docker. Cal explicar, pas a pas, tot el procés necessari fins a tenir l'aplicatiu correctament funcionant.
+
+## Sistemes empresarials
+
+Crea una segona aplicació MVC (o crea un segon dbcontext a l'actual). Escriu el codi c# per connectar-te a la base de dades d'Oddo i mostrar les dades d'alguna de les taules. Per exemple, la taula de clients.
