@@ -161,3 +161,27 @@ http://localhost:8069
 ```
 
 Un cop engegat, prepara una factura per facturar els serveis que has fet al projecte al client Cendrassos.
+
+## Com organitzo el meu codi?
+
+### Primera part
+
+Molt segurament, la millor estratègia és començar per la càrrega de dades. Hauries de fer aquestes passes:
+* Crees un projecte `console`
+* Crees els models que serviran per persistir les dades.
+* Crees el `dbcontext`
+* Busques una llibreria per llegir `csv`
+* Per cada línia de `csv`:
+   * Busques l'embassament, si no hi és a la bd el crees.
+   * Busques la dada a insertar, si no hi és a la bd la crees.
+
+### Segona part
+
+Per a fer la resta d'aplicacions: API i MVC necessitaràs els models que has fet servir abans. L'estragegia seria aquesta:
+* Crea un nou projecte `classlib` i mou els models i el dbcontex a aquest nou projecte (recorda canviar namespace de les classes al namespace del nou projecte)
+* Al projecte console posa una referència a aquest nou projecte (ex: `dotnet add reference ../EmbassamentsDB`)
+* Comprova que tot sergueix funcionant (esborra la base de dades, torna a fer la càrrega)
+
+A partir d'ara, ja tens els models i el dbcontex en un projecte que podràs usar des dels nous projectes.
+
+
