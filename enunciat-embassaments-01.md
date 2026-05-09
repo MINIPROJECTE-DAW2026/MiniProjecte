@@ -167,7 +167,7 @@ Un cop engegat, prepara una factura per facturar els serveis que has fet al proj
 ### Primera part
 
 Molt segurament, la millor estratègia és començar per la càrrega de dades. Hauries de fer aquestes passes:
-* Crees un projecte `console`
+* Crees un projecte `console` (ex: `dotnet new console -o Importador`)
 * Crees els models que serviran per persistir les dades.
 * Crees el `dbcontext`
 * Busques una llibreria per llegir `csv`
@@ -178,10 +178,207 @@ Molt segurament, la millor estratègia és començar per la càrrega de dades. H
 ### Segona part
 
 Per a fer la resta d'aplicacions: API i MVC necessitaràs els models que has fet servir abans. L'estragegia seria aquesta:
-* Crea un nou projecte `classlib` i mou els models i el dbcontex a aquest nou projecte (recorda canviar namespace de les classes al namespace del nou projecte)
+* Crea un nou projecte `classlib` (ex: `dotnet new classlib -o EmbassamentDB` ) i mou els models i el dbcontex a aquest nou projecte (recorda canviar namespace de les classes al namespace del nou projecte)
 * Al projecte console posa una referència a aquest nou projecte (ex: `dotnet add reference ../EmbassamentsDB`)
 * Comprova que tot sergueix funcionant (esborra la base de dades, torna a fer la càrrega)
 
 A partir d'ara, ja tens els models i el dbcontex en un projecte que podràs usar des dels nous projectes.
 
+Recorda crear una solution i posar-hi a dins els dos projectes:
 
+```bash
+dotnet new sln
+dotnet sln add Importador
+dotnet sln add EmbassamentsDB
+```
+
+> [!IMPORTANT] 
+> Recorda posar cada projecte en una carpeta (directori) diferent i el solutiona a l'arrel. No barregis solution amb projecte.
+
+> [!TIP]
+> No et faci por tornar a començar o refer-ho tot.
+
+
+### Tercera part
+
+Pots procedir a fer les apis:
+
+* Crea el projecte (ex: `dotnet new webapi -o EmbassamentAPI`)
+* Afegeix-lo al solution (ex: `dotnet sln add EmbassamentAPI` )
+* A la API posa la referència al projecte dbcontext (ex: `cd EmbassamentAPI; dotnet add reference ../EmbassamentDB` )
+* Pensa les consultes Linq per obtenir les dades que et demanen.
+* Fes les proves de la API i documenta-les.
+
+### Quarta Part
+
+Pots fer el projecte MVC. Recorda que els models de la base de dades ja els tens creats.
+
+* Crea el projecte (ex: `dotnet new mvc -o EmbassamentMVC`)
+* Afegeix-lo al solution (ex: `dotnet sln add EmbassamentMVC` )
+* Al MVC posa la referència al projecte dbcontext (ex: `cd EmbassamentMVC; dotnet add reference ../EmbassamentDB` )
+* Crea els `ModelView`. Cada ModelView és una classe que conté totes les dades que vols mostrar.
+* Al controlador, fes les consultes Linq necessaries per poder posar les dades dins el ModelView
+* Crida la vista passant com a paràmetre el model view.
+* Al template, accedeix al modelview per renderitzar la pàgina HTML que s'enviarà al navegador de l'usuari.
+* Fes això a cada controlador.
+
+### Cinquena part
+
+Prova a fusionar els projectes MVC i API. Per això, ens endurem les API al MVC.
+
+#### Migrar una Minimal API a un projecte MVC (.NET Core)
+
+Objectiu: tenir **MVC + API** dins del mateix projecte, de la manera més simple possible.
+
+#### Situació inicial
+
+Tens:
+
+- Una app MVC:
+
+'''text
+EmbassamentMVC
+'''
+
+- Una app WebAPI minimalista:
+
+'''text
+EmbassamentAPI
+'''
+
+La WebAPI actual té endpoints tipus:
+
+'''csharp
+app.MapGet("/embassaments", () => { ... });
+'''
+
+---
+
+#### Estratègia recomanada (la més simple)
+
+NO fusionis dos projectes.
+
+La manera més fàcil és:
+
+1. Agafar els endpoints de la Minimal API
+2. Copiar-los dins el `Program.cs` del projecte MVC
+3. Posar-los sota `/api/...`
+
+I ja està.
+
+---
+
+#### Pas 1 — Obrir el Program.cs del MVC
+
+Edita:
+
+'''text
+EmbassamentMVC/Program.cs
+'''
+
+---
+
+#### Pas 2 — Afegir OpenAPI (opcional)
+
+Si vols Swagger/OpenAPI:
+
+Afegeix:
+
+'''csharp
+builder.Services.AddOpenApi();
+'''
+
+Exemple:
+
+'''csharp
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddOpenApi();
+'''
+
+---
+
+#### Pas 3 — Activar OpenAPI en Development
+
+Afegeix:
+
+'''csharp
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+}
+'''
+
+---
+
+#### Pas 4 — Copiar els endpoints Minimal API
+
+Copia els teus `MapGet`, `MapPost`, etc.
+
+app.MapGet("/api/embassaments", () =>
+{
+    ...
+});
+'''
+
+IMPORTANT:
+
+Posa sempre `/api/...`
+
+Correcte:
+
+'''csharp
+/api/embassaments
+'''
+
+Incorrecte:
+
+'''csharp
+/embassaments
+'''
+
+Això evita conflictes amb MVC.
+
+
+#### Estructura recomanada per aplicacions més grans
+
+Quan el projecte creix, no és bona idea deixar totes les APIs dins `Program.cs`, perquè acaba sent difícil de mantenir.
+
+L'estructura habitual és separar:
+
+- `Controllers/` → MVC amb vistes
+- `Endpoints/` → Minimal APIs
+- `Services/` → lògica de negoci (pot estar en una classlib)
+- `Models/` → models i DTOs
+- `Data/` → accés a base de dades (pot estar en una classlib)
+
+Exemple:
+
+'''text
+EmbassamentMVC/
+│
+├── Controllers/
+│   └── HomeController.cs
+├── Endpoints/
+│   ├── WeatherEndpoints.cs
+│   └── EmbassamentEndpoints.cs
+├── Services/
+│   └── EmbassamentService.cs // millor a la seva pròpia classlib
+├── Models/
+│   └── Embassament.cs // millor a la seva pròpia classlib
+├── Data/
+│   └── AppDbContext.cs // millor a la seva pròpia classlib
+└── Program.cs
+'''
+
+El `Program.cs` queda molt net:
+
+'''csharp
+app.MapEmbassamentEndpoints();
+'''
+
+I cada fitxer `Endpoints/*.cs` defineix les seves rutes.
+
+Aquesta estructura és molt més mantenible quan tens moltes APIs, autenticació, base de dades o equips de desenvolupament més grans.
