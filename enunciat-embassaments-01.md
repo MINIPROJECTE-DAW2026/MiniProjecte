@@ -236,21 +236,21 @@ Tens:
 
 - Una app MVC:
 
-'''text
+```text
 EmbassamentMVC
-'''
+```
 
 - Una app WebAPI minimalista:
 
-'''text
+```text
 EmbassamentAPI
-'''
+```
 
 La WebAPI actual té endpoints tipus:
 
-'''csharp
+```csharp
 app.MapGet("/embassaments", () => { ... });
-'''
+```
 
 ---
 
@@ -272,9 +272,9 @@ I ja està.
 
 Edita:
 
-'''text
+```text
 EmbassamentMVC/Program.cs
-'''
+```
 
 ---
 
@@ -284,19 +284,19 @@ Si vols Swagger/OpenAPI:
 
 Afegeix:
 
-'''csharp
+```csharp
 builder.Services.AddOpenApi();
-'''
+```
 
 Exemple:
 
-'''csharp
+```csharp
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddOpenApi();
-'''
+```
 
 ---
 
@@ -304,12 +304,12 @@ builder.Services.AddOpenApi();
 
 Afegeix:
 
-'''csharp
+```csharp
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
-'''
+```
 
 ---
 
@@ -321,7 +321,7 @@ app.MapGet("/api/embassaments", () =>
 {
     ...
 });
-'''
+```
 
 IMPORTANT:
 
@@ -329,15 +329,15 @@ Posa sempre `/api/...`
 
 Correcte:
 
-'''csharp
+```csharp
 /api/embassaments
-'''
+```
 
 Incorrecte:
 
-'''csharp
+```csharp
 /embassaments
-'''
+```
 
 Això evita conflictes amb MVC.
 
@@ -356,7 +356,7 @@ L'estructura habitual és separar:
 
 Exemple:
 
-'''text
+```text
 EmbassamentMVC/
 │
 ├── Controllers/
@@ -371,13 +371,13 @@ EmbassamentMVC/
 ├── Data/
 │   └── AppDbContext.cs // millor a la seva pròpia classlib
 └── Program.cs
-'''
+```
 
 El `Program.cs` queda molt net:
 
-'''csharp
+```csharp
 app.MapEmbassamentEndpoints();
-'''
+```
 
 I cada fitxer `Endpoints/*.cs` defineix les seves rutes.
 
