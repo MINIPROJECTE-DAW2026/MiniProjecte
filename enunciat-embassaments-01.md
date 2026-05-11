@@ -11,12 +11,10 @@ La teva aplicació ha de mostrar aquestes pantalles als usuaris:
   * Total volum d'aigua
   * % Percentatge volum embassat
   * Anar al llistat d'estacions.
+* Llistat d'estacions. Es pot clicar una estació per veure més dades.
 * Estació
   * Estat actual de l'estació.
-  * Taula de dades: anys / mesos amb % Percentatge volum embassat amb codis de colors.
-* Estació i dia
-* Estació i mes/any: Veure l'estat d'un mes
-  concret de l'estació (mitjana dels dies)
+  * Taula de dades: històric dades de l'embassament.
 
 ## API
 
