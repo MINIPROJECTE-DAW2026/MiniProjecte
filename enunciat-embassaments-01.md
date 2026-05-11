@@ -317,6 +317,7 @@ if (app.Environment.IsDevelopment())
 
 Copia els teus `MapGet`, `MapPost`, etc.
 
+```cshap
 app.MapGet("/api/embassaments", () =>
 {
     ...
